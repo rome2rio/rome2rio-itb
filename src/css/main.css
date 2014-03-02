@@ -1,0 +1,99 @@
+
+html
+{
+    width:100%;
+    height: 100%;
+}
+
+body
+{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#play-map
+{
+    height: 100%;
+}
+
+.play-text
+{
+    margin: 16px 13px 20px 0;
+    padding: 4px 11px 4px 13px;
+    border: 1px solid transparent;
+    border-radius: 2px 0 0 2px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    height: 48px;
+    outline: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    opacity: 0.9;
+    background-color: #fff;
+    font-family: Roboto;
+    font-size: 30px;
+    font-weight: 300;
+    text-overflow: ellipsis;
+}
+
+.play-input
+{
+    width: 500px;
+}
+
+.play-summary
+{
+    width: 1040px;
+    text-transform: capitalize;
+}
+
+.play-leaders
+{
+    margin: 16px -310px;
+    width: 300px;
+    height: 80%;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    z-index: 99;
+    overflow: hidden;
+}
+
+.play-score
+{
+    margin: -68px -310px;
+    width: 300px;
+    position: absolute;
+    top: 100%;
+    left: 100%;
+    z-index: 99;
+}
+
+.play-leaders table
+{
+    width: 100%;
+}
+
+.play-score table
+{
+    width: 100%;
+}
+
+.play-score-right
+{
+    text-align: right;
+}
+
+.play-congrats
+{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    height: 400px;
+    padding: 0 40px 0 40px;
+    margin: -200px -300px;
+    text-align: center;
+}

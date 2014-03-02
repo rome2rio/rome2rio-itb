@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places,geometry"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/json2/20130526/json2.min.js"></script>
+    <script type="text/javascript" src="js/map.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/scores.js"></script>
+    <script type="text/javascript" src="js/search.js"></script>
+    
+    <script type="text/javascript">
+
+      google.maps.event.addDomListener(window, 'load', r2r.initialize);
+
+    </script>
+  </head>
+  <body>
+
+    <div id="play-map"></div>
+
+    <div id="play-text">
+      <input id="play-from-input" class="play-text play-input" type="text" placeholder="From" />
+      <input id="play-to-input" class="play-text play-input" type="text" placeholder="To" />
+      <div id="play-leaders" class="play-text play-leaders"></div>
+      <div id="play-summary" class="play-text play-summary"></div>
+      <div id="play-score" class="play-text play-score"></div>
+    </div>
+
+    <div id="play-congrats" class="play-text play-congrats">
+      <p>Congratulations, you are ranked 1st!</p>
+      <p>Please enter a short name for the leader board.</p>
+      <input id="play-congrats-name" class="play-text" type="text" /><br />
+      <input class="play-text play-button" type="button" value="Save" onclick="r2r.saveHighScore();" />
+      <input class="play-text play-button" type="button" value="Skip" onclick="r2r.skipHighScore();" />
+    </div>
+
+  </body>
+</html>
