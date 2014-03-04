@@ -127,14 +127,14 @@ var r2r = (function (my, window, document)
     function displayHighScores()
     {
         var html = "<table>";
-        html += "<thead><th>Rank</th><th>Name</th><th>Score</th></thead>";
+        html += "<thead><th>Rank</th><th>Name</th><th>Score</th><th>Route</th></thead>";
 
         for (var index = 0; index < 10; index++)
         {
             var score = r2r.scores.getScore(index);
             if (score == null) break;
 
-            html += "<tr><td class='play-score-rank'>" + getRankText(index+1) + "</td><td class='play-score-left'>" + score.user + "</td><td class='play-score-right'>" + score.points + "pts</td></tr>";
+            html += "<tr><td class='play-score-rank'>" + getRankText(index+1) + "</td><td class='play-score-left'>" + score.user + "</td><td class='play-score-right'>" + score.points + "pts</td><td align='right'>" + score.from.name + " to " + score.to.name + "</td></tr>";
         }
 
         html += "</table>";

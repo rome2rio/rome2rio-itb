@@ -38,6 +38,12 @@ body
     display: none;
 }
 
+#travelmassive-logo {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+}
+
 #tips
 {
     position: absolute;
@@ -96,8 +102,8 @@ body
 
 .play-leaders
 {
-    margin: 16px -310px;
-    width: 300px;
+    margin: 16px -510px;
+    width: 500px;
     height: 50%;
     position: absolute;
     top: 160px;
