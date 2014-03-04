@@ -65,6 +65,32 @@ body
     color: #fff;
 }
 
+#github
+{
+    position: absolute;
+    bottom: 30px;
+    height: 100px;
+    z-index: 1000;
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 4px;
+    font-family: Roboto;
+    width: 230px;
+    margin-left: auto;
+    margin-right: auto;
+    right: 20px;
+    height: 32px;
+    line-height: 0.3em;
+    padding-left: 16px;
+    background-color: #fefefe;
+    color: #222;
+    font-size: 14px;
+}
+
+#github a { 
+color: #222;
+}
+
 #play-map
 {
     height: calc(100% - 124px);
