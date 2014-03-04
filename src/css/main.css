@@ -13,9 +13,55 @@ body
     padding: 0;
 }
 
+#intro
+{
+    height: 100px;
+    font-family: Roboto;
+    font-size: 12pt;
+}
+
+#intro img { 
+    margin-top: 8px;
+    margin-left: 6px;
+}
+
+#intro-text {
+}
+
+#play-score-top {
+    font-size: 18pt;
+    display: none;
+}
+
+#searching-message {
+    font-size: 18pt;
+    display: none;
+}
+
+#tips
+{
+    position: absolute;
+    bottom: 30px;
+    height: 100px;
+    z-index: 1000;
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 4px;
+    font-family: Roboto;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    left: calc(50% - 300px);
+    height: 32px;
+    line-height: 0.3em;
+    padding-left: 16px;
+    background-color: #bc266d;
+    color: #fff;
+}
+
 #play-map
 {
-    height: 100%;
+    height: calc(100% - 124px);
 }
 
 .play-text
@@ -29,10 +75,10 @@ body
     height: 48px;
     outline: none;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-    opacity: 0.9;
+    /*opacity: 0.9;*/
     background-color: #fff;
     font-family: Roboto;
-    font-size: 30px;
+    font-size: 24px;
     font-weight: 300;
     text-overflow: ellipsis;
 }
@@ -42,9 +88,9 @@ body
     width: 500px;
 }
 
-.play-summary
+#play-summary
 {
-    width: 1040px;
+    font-size: 12pt;
     text-transform: capitalize;
 }
 
@@ -52,11 +98,12 @@ body
 {
     margin: 16px -310px;
     width: 300px;
-    height: 80%;
+    height: 50%;
     position: absolute;
-    top: 0;
+    top: 160px;
     left: 100%;
     z-index: 99;
+    font-size: 12pt;
     overflow: hidden;
 }
 

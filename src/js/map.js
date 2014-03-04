@@ -14,7 +14,8 @@ var r2r = (function (my, window, document)
 
         this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(document.getElementById("play-from-input"));
         this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(document.getElementById("play-to-input"));
-        this.map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(document.getElementById("play-summary"));
+
+        //this.map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(document.getElementById("play-summary"));
         
         this.autocompleteFrom = new google.maps.places.Autocomplete(document.getElementById("play-from-input"));
         this.autocompleteTo = new google.maps.places.Autocomplete(document.getElementById("play-to-input"));

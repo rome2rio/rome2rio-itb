@@ -39,6 +39,8 @@ var r2r = (function (my, window, document)
 
         if (placeFrom && placeFrom.geometry && placeTo && placeTo.geometry)
         {
+            showSearchMessage();
+            hideInputs();
             setSummaryText("Searching...");
             setScoreText("", "");
 
@@ -55,12 +57,53 @@ var r2r = (function (my, window, document)
             displayRouteSummary(response, response.routes[0]);
             displayRouteScore(resizeBy, response.routes[0]);
             displayHighScores();
+        } 
+
+        if (response.routes && response.routes.length == 0)
+        {
+            setSummaryText("No routes found, try again...");
         }
     }
 
     function setScoreText(rankText, pointsText)
     {
-        document.getElementById("play-score").innerHTML = "<table><tr><td class='play-score-left'>" + rankText + "</td><td class='play-score-right'>" + pointsText + "</td></tr></table>";
+        document.getElementById("play-score-text").innerHTML = "<p class='play-score-top'>You scored " + rankText + " with " + pointsText + "! &nbsp;&nbsp;<a href='#' style='color: blue;' onClick='location.reload();'>Play Again</a></p>";
+    }
+
+    my.showIntro = function()
+    {
+        document.getElementById("intro-text").style.display = "block";
+        document.getElementById("searching-message").style.display = "none";
+        document.getElementById("play-score-top").style.display = "none";
+        document.getElementById("play-from-input").value = "";
+        document.getElementById("play-to-input").value = "";
+    }
+
+    function showSearchMessage()
+    {
+        document.getElementById("intro-text").style.display = "none";
+        document.getElementById("searching-message").style.display = "block";
+        document.getElementById("play-score-top").style.display = "none";
+    }
+
+    function showScore()
+    {
+        document.getElementById("intro-text").style.display = "none";
+        document.getElementById("searching-message").style.display = "none";
+        document.getElementById("play-score-top").style.display = "block";
+    }
+
+    function hideScore()
+    {
+        document.getElementById("intro-text").style.display = "block";
+        document.getElementById("searching-message").style.display = "none";
+        document.getElementById("play-score-top").style.display = "none";
+    }
+
+    function hideInputs()
+    {
+        r2r.map.map.controls[google.maps.ControlPosition.TOP_LEFT].pop(document.getElementById("play-from-input"));
+        r2r.map.map.controls[google.maps.ControlPosition.TOP_LEFT].pop(document.getElementById("play-to-input"));
     }
 
     function setSummaryText(text)
@@ -71,13 +114,14 @@ var r2r = (function (my, window, document)
     function displayHighScores()
     {
         var html = "<table>";
+        html += "<thead><th>Rank</th><th>Name</th><th>Score</th></thead>";
 
-        for (var index = 0; index < 15; index++)
+        for (var index = 0; index < 10; index++)
         {
             var score = r2r.scores.getScore(index);
             if (score == null) break;
 
-            html += "<tr><td class='play-score-left'>" + score.user + "</td><td class='play-score-right'>" + score.points + "pts</td></tr>";
+            html += "<tr><td class='play-score-rank'>" + getRankText(index+1) + "</td><td class='play-score-left'>" + score.user + "</td><td class='play-score-right'>" + score.points + "pts</td></tr>";
         }
 
         html += "</table>";
@@ -95,6 +139,7 @@ var r2r = (function (my, window, document)
         var rankText = getRankText(currentRank);
         var pointsText = getPointsText(currentPoints);
         setScoreText(rankText, pointsText);
+        showScore();
 
         // store high score
         if (currentRank <= 10)
@@ -118,18 +163,21 @@ var r2r = (function (my, window, document)
     function hideCongrats()
     {
         document.getElementById("play-congrats").style.display = "none";
-        document.getElementById("play-from-input").focus();
+        //document.getElementById("play-from-input").focus();
     }
 
     function displayRouteSummary(response, route)
     {
+        var placeFrom = r2r.map.autocompleteFrom.getPlace();
+        var placeTo = r2r.map.autocompleteTo.getPlace();
+
         var durationSummary = getDurationSummary(response, route);
         var distanceSummary = getDistanceSummary(response, route);
         var vehicleSummary = getVehicleSummary(response, route);
 
         var summaryText = durationSummary + " " + distanceSummary + " " + vehicleSummary;
 
-        setSummaryText(summaryText);
+        setSummaryText("From " + placeFrom.name + " to " + placeTo.name + ": " + summaryText);
     }
 
     function getDurationSummary(response, route)

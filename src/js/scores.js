@@ -19,6 +19,7 @@ var r2r = (function (my, window, document)
         points += route.duration / (10 * 60);
 
         // one point per hop
+        var points_per_hop = 1;
         for (var s = 0; s < route.segments.length; s++)
         {
             var segment = route.segments[s];
@@ -64,6 +65,10 @@ var r2r = (function (my, window, document)
 
     my.Scores.prototype.addScore = function (user, fromPlace, toPlace, points)
     {
+        // strip html
+        user = user.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 30); // 30 chars max
+
+
         // create score object
         var from = { name: fromPlace.name, lat: fromPlace.geometry.location.lat(), lng: fromPlace.geometry.location.lng(), kind: fromPlace.types[0] };
         var to = { name: toPlace.name, lat: toPlace.geometry.location.lat(), lng: toPlace.geometry.location.lng(), kind: toPlace.types[0] };

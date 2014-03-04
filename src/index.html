@@ -20,19 +20,41 @@
   </head>
   <body>
 
+    <div id="intro">
+      <div style="float: left; padding-right: 32px;"><img src="images/rome2rio_logo.jpg"></div>
+      <div style="float: left;" id="intro-text">
+        <p>
+          <span style='color: #bc266d; font-size: larger;'> Can you find the longest travel route in the world?</span>
+          <br><strong>How to play:</strong> Enter two destinations, and see how you fare!
+          <br><strong>Scoring:</strong> <span style='color: red;'>One point per 100km.</span> <span style='color: green;'>One point per 1 hour travel.</span> <span style='color: blue;'> Ten points per hop (plane, bus, train, ferry, etc.).</span>
+        </p>
+      </div>
+      <div style="float: left;" id="searching-message">
+        <p>Calculating your score, please wait...</p>
+      </div>
+      <div style="float: left;" id="play-score-top">
+        <p style="line-height: 0.5;">
+        <span id="play-score-text">You scored 12 points! Your rank is 21st.</span>
+        <span id="play-summary"><br></span>
+        </p>
+      </div>
+    </div>
+
+    <div id="tips">
+      <p>Insider Tip: Travel between local addresses to earn extra points for buses and taxis.</p>
+    </div>
+
     <div id="play-map"></div>
 
     <div id="play-text">
       <input id="play-from-input" class="play-text play-input" type="text" placeholder="From" />
       <input id="play-to-input" class="play-text play-input" type="text" placeholder="To" />
       <div id="play-leaders" class="play-text play-leaders"></div>
-      <div id="play-summary" class="play-text play-summary"></div>
-      <div id="play-score" class="play-text play-score"></div>
     </div>
 
     <div id="play-congrats" class="play-text play-congrats">
       <p>Congratulations, you are ranked 1st!</p>
-      <p>Please enter a short name for the leader board.</p>
+      <p>Please enter your Twitter or short name for the leader board.</p>
       <input id="play-congrats-name" class="play-text" type="text" /><br />
       <input class="play-text play-button" type="button" value="Save" onclick="r2r.saveHighScore();" />
       <input class="play-text play-button" type="button" value="Skip" onclick="r2r.skipHighScore();" />

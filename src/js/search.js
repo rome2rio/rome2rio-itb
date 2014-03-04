@@ -33,6 +33,8 @@ var r2r = (function (my, window, document)
             "&dName=" + dName +
             "&dPos=" + dPos +
             "&dKind=" + dKind;
+        //url = url + "&flags=0x00000001"; // hardcore mode, no planes :)
+        console.log(url);
 
         request.open("get", url);
         request.send();
