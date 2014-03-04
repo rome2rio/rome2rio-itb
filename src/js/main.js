@@ -24,11 +24,13 @@ var r2r = (function (my, window, document)
 
         // display scores
         hideCongrats();
+        showHighScores();        
         displayHighScores();
     }
 
     my.skipHighScore = function ()
     {
+        showHighScores();
         hideCongrats();
     }
 
@@ -100,6 +102,17 @@ var r2r = (function (my, window, document)
         document.getElementById("play-score-top").style.display = "none";
     }
 
+    function showHighScores()
+    {
+        document.getElementById("play-leaders").style.display = "block";
+    }
+
+    function hideHighScores()
+    {
+        document.getElementById("play-leaders").style.display = "none";
+    }
+
+
     function hideInputs()
     {
         r2r.map.map.controls[google.maps.ControlPosition.TOP_LEFT].pop(document.getElementById("play-from-input"));
@@ -144,6 +157,7 @@ var r2r = (function (my, window, document)
         // store high score
         if (currentRank <= 10)
         {
+            hideHighScores();
             displayCongrats(response, route);
         }
     }
